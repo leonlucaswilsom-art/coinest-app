@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--
+    Security headers (meta-tag form): a Content-Security-Policy that only
+    allows the app's own origin plus the Convex backend, the local dev
+    server, and Cloudflare Turnstile, and a strict referrer policy.
+    frame-ancestors is intentionally omitted so the Freebuff preview can
+    embed the app; HTTPS is enforced by the hosting platform.
+  -->
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https://*.convex.cloud wss://*.convex.cloud ws://localhost:* http://localhost:* https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; base-uri 'self'; form-action 'self'"
+  />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta
+    name="description"
+    content="CoinNest is a secure crypto savings tracker. Log the value of every coin you set aside, monitor your savings goals, and keep full control of your data."
+  />
+  <meta name="theme-color" content="#2563eb" />
+  <meta name="robots" content="index, follow" />
+  <title>CoinNest — Secure Crypto Savings Tracker</title>
+
+  <!-- Open Graph (how links appear when shared on social/media) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://coinnest.freebuff.app" />
+  <meta property="og:title" content="CoinNest — Secure Crypto Savings Tracker" />
+  <meta
+    property="og:description"
+    content="Track your crypto savings with confidence. Log any coin you set aside, monitor your goals, and keep full control of your data."
+  />
+  <meta property="og:site_name" content="CoinNest" />
+  <meta property="og:image" content="https://coinnest.freebuff.app/logo.svg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="CoinNest — Secure Crypto Savings Tracker" />
+  <meta
+    name="twitter:description"
+    content="Track your crypto savings with confidence. Log any coin you set aside, monitor your goals, and keep full control of your data."
+  />
+  <!--
+    App entry lives in <head> so it executes BEFORE the script that the
+    Vly plugin injects at the end of <head> (that inline import pulls in
+    the AI SDK, which would otherwise delay app startup on every reload).
+  -->
+  <script type="module" src="/src/main.tsx"></script>
+</head>
+
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>
